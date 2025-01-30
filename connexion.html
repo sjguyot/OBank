@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Connexion</title>
+</head>
+<p>Veuillez saisir votre nom :</p>
+    <input type="text" id="nom"/>
+    <p id="inconnu"></p>
+    <p>Veuillez rentrer votre mot de passe :</p>
+    <input type="password" id="motdepasse"/>
+    <button onclick="test()">Valider</button>
+    <script src-="js/sha512.mjs"></script>
+    <script type="text/javascript">
+        import utilisateur from "htps://sjguyot.github.io/Obank/inscription.html";
+        import motpassecrypte from "https://sjguyot.github.io/Obank/inscription.html";
+        var motdepasse = document.getElementById('motdepasse');
+        motdepasse.addEventListener('input', function() {
+            function sha512(str) {
+                var buffer = new TextEncoder('utf-8').encode(str);
+                return crypto.subtle.digest('SHA-512', buffer).then(function(hash) {
+                    return Array.from(new Uint8Array(hash)).map(function(byte) {
+                        return ('0' + byte.toString(16)).slice(-2);
+                    }).join('');
+                });
+            }
+            loop(motpassecrypte, utilisateur); {
+                for (var i = 0; i < utilisateur.length; i++) {
+                    if (nom.value == utilisateur[i]) {
+                        if (hash == motpassecrypte[i]) {
+                            var url = 'https://sjguyot.github.io/'+hash+'.html';
+                            window.location.href = url;
+                        } else {
+                            alert('Hackage détecté !');
+                        }
+                    }
+                }
+            }
+
+
+        });
+    </script>

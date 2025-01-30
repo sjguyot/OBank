@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Connexion</title>
+</head>
+<body>
+    <p>Veuillez saisir votre nom :</p>
+    <input type="text" id="nomNutilisateur"/>
+    <p>Veuillez rentrer un mot de passe.
+    <input type="password" id="Nmotdepasse"/>
+    <script src="js/sha512.mjs"></script>
+    <script type="text/javascript">
+        var utilisateur = []
+        var motpassecrypte = []
+        var nomNutilisateur = document.getElementById('nomNutilisateur');
+        var Nmotdepasse = document.getElementById('Nmotdepasse');
+        utilisateur.push(nomNutilisateur);
+        motpassecrypte.push(Nmotdepasse);
+    </script>
+    </p>
+</body>
