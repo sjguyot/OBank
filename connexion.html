@@ -11,10 +11,12 @@
     <button onclick="test()">Valider</button>
     <script src-="js/sha512.mjs"></script>
     <script type="text/javascript">
+        console. Log( "1");
         import utilisateur from "htps://sjguyot.github.io/Obank/inscription.html";
         import motpassecrypte from "https://sjguyot.github.io/Obank/inscription.html";
         var motdepasse = document.getElementById('motdepasse');
         motdepasse.addEventListener('input', function() {
+            console. Log( "2");
             function sha512(str) {
                 var buffer = new TextEncoder('utf-8').encode(str);
                 return crypto.subtle.digest('SHA-512', buffer).then(function(hash) {
@@ -23,10 +25,12 @@
                     }).join('');
                 });
             }
+            console. Log( "3");
             loop(motpassecrypte, utilisateur); {
                 for (var i = 0; i < utilisateur.length; i++) {
                     if (nom.value == utilisateur[i]) {
                         if (hash == motpassecrypte[i]) {
+                            console. Log( "bug");
                             var url = 'https://sjguyot.github.io/'+hash+'.html';
                             window.location.href = url;
                         } else {
@@ -35,7 +39,6 @@
                     }
                 }
             }
-
-
+            console. Log( "4");
         });
     </script>
