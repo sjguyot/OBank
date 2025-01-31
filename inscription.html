@@ -14,6 +14,14 @@
         var motpassecrypte = []
         var nomNutilisateur = document.getElementById('nomNutilisateur');
         var Nmotdepasse = document.getElementById('Nmotdepasse');
+        function sha512(str) {
+            var buffer = new TextEncoder('utf-8').encode(str);
+            return crypto.subtle.digest('SHA-512', buffer).then(function(hash) {
+                return Array.from(new Uint8Array(hash)).map(function(byte) {
+                    return ('0' + byte.toString(16)).slice(-2);
+                }).join('');
+            });
+        }
         utilisateur.push(nomNutilisateur);
         motpassecrypte.push(Nmotdepasse);
     </script>
