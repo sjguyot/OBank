@@ -3,42 +3,45 @@
 <head>
     <title>Connexion</title>
 </head>
+<body>
 <p>Veuillez saisir votre nom :</p>
     <input type="text" id="nom"/>
     <p id="inconnu"></p>
-    <p>Veuillez rentrer votre mot de passe :</p>
+<p>Veuillez rentrer votre mot de passe :</p>
     <input type="password" id="motdepasse"/>
-    <button onclick="test()">Valider</button>
-    <script src-="js/sha512.mjs"></script>
-    <script type="text/javascript">
-        console. Log( "1");
-        import utilisateur from "htps://sjguyot.github.io/Obank/inscription.html";
-        import motpassecrypte from "https://sjguyot.github.io/Obank/inscription.html";
-        var motdepasse = document.getElementById('motdepasse');
-        motdepasse.addEventListener('input', function() {
-            console. Log( "2");
-            function sha512(str) {
-                var buffer = new TextEncoder('utf-8').encode(str);
-                return crypto.subtle.digest('SHA-512', buffer).then(function(hash) {
-                    return Array.from(new Uint8Array(hash)).map(function(byte) {
-                        return ('0' + byte.toString(16)).slice(-2);
-                    }).join('');
-                });
-            }
-            console. Log( "3");
-            loop(motpassecrypte, utilisateur); {
-                for (var i = 0; i < utilisateur.length; i++) {
-                    if (nom.value == utilisateur[i]) {
-                        if (hash == motpassecrypte[i]) {
-                            console. Log( "bug");
-                            var url = 'https://sjguyot.github.io/'+hash+'.html';
-                            window.location.href = url;
-                        } else {
-                            alert('Hackage détecté !');
-                        }
-                    }
+<button onclick="valider()">Valider</button>
+<script src-="js/sha512.mjs"></script>
+<script type="text/javascript">
+    console. Log( "1");
+    import utilisateur from "htps://sjguyot.github.io/Obank/inscription.html";
+    import motpassecrypte from "https://sjguyot.github.io/Obank/inscription.html";
+    var motdepasse = document.getElementById('motdepasse');
+    var nom = document.getElementById('nom');
+    function valider() {
+        console. Log( "2");
+        function sha512(str) {
+            var buffer = new TextEncoder('utf-8').encode(str);
+            return crypto.subtle.digest('SHA-512', buffer).then(function(hash) {
+                return Array.from(new Uint8Array(hash)).map(function(byte) {
+                    return ('0' + byte.toString(16)).slice(-2);
+                }).join('');
+            });
+        }
+        console. Log( "3");
+        for (var i = 0; i < utilisateur.length; i++) {
+            if (nom.value == utilisateur[i]) {
+                if (hash == motpassecrypte[i]) {
+                    console. Log( "bug");
+                    var url = 'https://sjguyot.github.io/'+motdepasse+'.html';
+                    window.location.href = url;
+                } else {
+                    alert('Hackage détecté !');
                 }
+            } else {
+                alert('Cet utilisateur n'exsiste pas.')
             }
-            console. Log( "4");
-        });
-    </script>
+        }
+        console. Log( "4");
+    });
+</script>
+</body>
