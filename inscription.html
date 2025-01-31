@@ -4,17 +4,18 @@
     <title>Connexion</title>
 </head>
 <body>
-    <p>Veuillez saisir votre nom :</p>
+<p>Veuillez saisir votre nom :</p>
     <input type="text" id="nomNutilisateur"/>
-    <p>Veuillez rentrer un mot de passe.
+<p>Veuillez rentrer un mot de passe.</p>
     <input type="password" id="Nmotdepasse"/>
-    <button onclick="valider()">Valider</button>
-    <script src="js/sha512.mjs"></script>
-    <script type="text/javascript">
-        var utilisateur = []
-        var motpassecrypte = []
-        var nomNutilisateur = document.getElementById('nomNutilisateur');
-        var Nmotdepasse = document.getElementById('Nmotdepasse');
+<button onclick="valider()">Valider</button>
+<script src="js/sha512.mjs"></script>
+<script type="text/javascript">
+    var utilisateur = []
+    var motdepassecrypte = []
+    var nomNutilisateur = document.getElementById('nomNutilisateur');
+    var Nmotdepasse = document.getElementById('Nmotdepasse');
+    function valider() {
         function sha512(str) {
             var buffer = new TextEncoder('utf-8').encode(str);
             return crypto.subtle.digest('SHA-512', buffer).then(function(hash) {
@@ -23,8 +24,10 @@
                 }).join('');
             });
         }
-        utilisateur.push(nomNutilisateur);
-        motpassecrypte.push(Nmotdepasse);
-    </script>
-    </p>
+    sha512(Nmotdepasse.value).then(function(hash) {
+    var Nmotdepassecrypte = hash
+    utilisateur.push(nomNutilisateur);
+    motdepassecrypte.push(Nmotdepassecrypte);
+    }
+</script>
 </body>
